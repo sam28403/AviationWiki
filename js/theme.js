@@ -19,17 +19,20 @@ window.onload = () => {
     }
 };
 
-// 机场详细介绍展开
-function toggleDetail(cardElement) {
-    // 找到紧随其后的 .card-detail 元素
-    const detail = cardElement.nextElementSibling;
+//主页侧边栏收起展开控制
+const toggleBtn = document.getElementById('toggleSidebar');
+const sidebar = document.querySelector('aside');
+const container = document.querySelector('.container');
 
-    // 如果已经展开，点击关闭
-    if (detail.style.display === 'block') {
-        detail.style.display = 'none';
-    } else {
-        // 先关闭其他所有 detail
-        document.querySelectorAll('.card-detail').forEach(el => el.style.display = 'none');
-        detail.style.display = 'block';
-    }
-}
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    container.classList.toggle('sidebar-collapsed');
+});
+
+// 页面加载后 若干ms 自动收起侧边栏，这么做为了让用户知道侧边栏的存在。
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        sidebar.classList.add('collapsed');
+        container.classList.add('sidebar-collapsed');
+    }, 700); // 这里改时间，单位为ms
+});

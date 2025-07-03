@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Aviation Wiki</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage-style.css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     </a>
     <button id="themeBtn" onclick="toggleTheme()">🌙</button>
   </header>
-
+  <button id="toggleSidebar">☰</button>
   <aside>
     <nav>
       <ul>
@@ -28,17 +28,60 @@
   </aside>
 
   <main>
-    <h2>歡迎來到航空維基👋👋👋</h2>
-    <p>本平臺提供各種航空器和機場訊息。</p>
-    <p>您可以點選左側鏈接，進入不同頁面。</p>
+    <div class="flight-container">
+      <div class="plane">✈️</div>
+      <div class="cloud">☁️</div>
+      <div class="cloud">☁️</div>
+      <div class="cloud">☁️</div>
 
-    <h2>熱門機型</h2>
+      <div class="sun">☀️</div>
+
+      <div class="moon-container">
+        <div class="moon">🌙</div>
+        <div class="snore">Zzᙆ...</div>
+      </div>
+    </div>
+    <h1 class="title">Welcome to Aviation Wiki👋👋👋</h1>
+    <h2 class="subtitle">查看最新飞机</h2>
+    <div class="card-list">
+      <a href="#" class="card">
+        <img src="img/Boeing.svg" alt="Boeing" class="card-img" width="150">
+        <h1 class="cardtext">波音</h1>
+      </a>
+
+
+
+      <a href="#" class="card">
+        <img src="img/Airbus.png" alt="Airbus" class="card-img" width="150">
+        <h1 class="cardtext">空中客车</h1>
+      </a>
+    </div>
+
+    <h2 class="subtitle">查看附近机场</h2>
+    <div class="card-list">
+      <a href="airport.html" class="card-bbs">
+        <img src="img/airport.png" alt="Airport" class="card-img" width="200">
+        <h1 class="cardtext">🌍上海及周边地区国际机场列表与介绍🌏</h1>
+      </a>
+    </div>
+
+    <h2 class="subtitle">与航空爱好者交流</h2>
+    <div class="card-list">
+      <a href="bbs.html" class="card-bbs">
+        <img src="img/meeting.png" alt="bbs"  class="card-img" width="200">
+        <h1 class="cardtext">👨‍✈️👩‍✈️查找志同道合的航空爱好者！👨‍✈️👩‍✈️</h1>
+      </a>
+    </div>
+
+    <hr>
+
+    <h2>热门机型</h2>
     <div class="card-list">
       <div class="card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/JA835A%40PEK_%2820180524083050%29.jpg" alt="ANA's Boeing 787" width="150">
         <div class="info">
           <h1>Boeing 787</h1>
-          <p><strong>Introduction</strong></p>
+          <p><strong>最受乘客喜爱的飞机</strong></p>
         </div>
       </div>
 
@@ -46,7 +89,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg" alt="Airbus A380" width="150">
         <div class="info">
           <h1>Airbus A380</h1>
-          <p><strong>Introduction</strong></p>
+          <p><strong>双层大飞机</strong></p>
         </div>
       </div>
 
@@ -57,19 +100,24 @@
       <div class="card">
         <img src="img/sha.svg" alt="PVG" width="100">
         <div class="info">
-          <h1>浦东国际机场 (PVG)</h1>
+          <h1>浦东国际机场</h1>
           <p>上海市，浦东新区</p>
         </div>
+        <div class="code-label">PVG</div>
       </div>
 
+
       <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/zh/7/74/HIA.svg" alt="HGH" width="100">
+        <img src="img/HIA.svg" alt="HGH" width="150">
         <div class="info">
-          <h1>杭州萧山国际机场 (HGH)</h1>
+          <h1>萧山国际机场</h1>
           <p>杭州市，萧山区</p>
         </div>
+        <div class="code-label">HGH</div>
       </div>
     </div>
+
+    <h2>精选照片</h2>
     <img src="img/mainpage.jpg" alt="B-7868" width="1000" class="center-img">
   </main>
 
