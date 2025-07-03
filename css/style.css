@@ -113,7 +113,8 @@ body.dark nav a {
 }
 
 body.dark nav a:hover {
-    color: #87cefa;
+    /*color: #87cefa;*/
+    color: #ffffff
 }
 
 .home-link {
@@ -292,5 +293,46 @@ body.dark .card {
 .asideCard-highlight:hover {
     scale: 1.03;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+body.dark .asideCard {
+    display: flex;
+    align-items: start;
+    background: #777777;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none; /* 去掉下划线 */
+    color: inherit; /* 继承字体颜色 */
+}
+
+body.dark .asideCard-highlight {
+    display: flex;
+    align-items: start;
+    background: linear-gradient(to top left, white, deeppink);
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;  /* 去掉下划线 */
+    color: inherit;         /* 继承字体颜色 */
+}
+
+body.dark .asideCard:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to top left, white, darkgreen);
     cursor: pointer;
 }
