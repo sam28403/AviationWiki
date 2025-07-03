@@ -1,0 +1,152 @@
+:root {
+    --light-bg: #f9f9f9;
+    --light-sidebar: #eeeeee;
+    --light-header: royalblue;
+    --light-footer: royalblue;
+    --light-text: #000;
+
+    --dark-bg: #121212;
+    --dark-sidebar: #2b2b2b;
+    --dark-header: #1e90ff;
+    --dark-footer: #1e90ff;
+    --dark-text: #f1f1f1;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "微软雅黑", sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr 50px;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--light-header);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark header {
+    background-color: var(--dark-header);
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: var(--light-sidebar);
+    color: #333;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark aside {
+    background-color: var(--dark-sidebar);
+    color: var(--dark-text);
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: var(--light-bg);
+    transition: background-color 0.3s ease;
+}
+
+body.dark main {
+    background-color: var(--dark-bg);
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--light-footer);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark footer {
+    background-color: var(--dark-footer);
+    color: black;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #4b0082;
+}
+
+body.dark nav a {
+    color: #ccc;
+}
+
+body.dark nav a:hover {
+    color: #87cefa;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.home-link:hover {
+    opacity: 0.85;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+#themeBtn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+#themeBtn:hover {
+    transform: scale(1.1);
+}
