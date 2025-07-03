@@ -19,21 +19,7 @@ window.onload = () => {
     }
 };
 
-// // 机场详细介绍展开
-// function toggleDetail(cardElement) {
-//     // 找到紧随其后的 .card-detail 元素
-//     const detail = cardElement.nextElementSibling;
-
-//     // 如果已经展开，点击关闭
-//     if (detail.style.display === 'block') {
-//         detail.style.display = 'none';
-//     } else {
-//         // 先关闭其他所有 detail
-//         document.querySelectorAll('.card-detail').forEach(el => el.style.display = 'none');
-//         detail.style.display = 'block';
-//     }
-// }
-
+// 以下是机场页面上关于点击弹出文本效果的改动
 // 事件委托处理所有卡片点击
 document.addEventListener('click', function(e) {
   // 查找被点击的卡片元素
