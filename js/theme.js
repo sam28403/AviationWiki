@@ -18,3 +18,18 @@ window.onload = () => {
         document.getElementById("themeBtn").innerText = "🌞";
     }
 };
+
+// 机场详细介绍展开
+function toggleDetail(cardElement) {
+    // 找到紧随其后的 .card-detail 元素
+    const detail = cardElement.nextElementSibling;
+
+    // 如果已经展开，点击关闭
+    if (detail.style.display === 'block') {
+        detail.style.display = 'none';
+    } else {
+        // 先关闭其他所有 detail
+        document.querySelectorAll('.card-detail').forEach(el => el.style.display = 'none');
+        detail.style.display = 'block';
+    }
+}
