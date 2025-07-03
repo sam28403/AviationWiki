@@ -246,3 +246,51 @@ body.dark .card {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/*侧边栏*/
+.asideCard {
+    display: flex;
+    align-items: start;
+    background: #cccccc;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none; /* 去掉下划线 */
+    color: inherit; /* 继承字体颜色 */
+}
+
+.asideCard-highlight {
+    display: flex;
+    align-items: start;
+    background: linear-gradient(to bottom right, white, lightpink);
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;  /* 去掉下划线 */
+    color: inherit;         /* 继承字体颜色 */
+}
+
+.asideCard:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom right, white, lightgreen);
+    cursor: pointer;
+}
+
+.asideCard-highlight:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
