@@ -105,7 +105,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #4b0082;
+    color: #333;
 }
 
 body.dark nav a {
@@ -269,7 +269,7 @@ body.dark .card {
 .asideCard-highlight {
     display: flex;
     align-items: start;
-    background: linear-gradient(to bottom right, white, lightpink);
+    background: linear-gradient(to bottom right, white, #bdb1d8);
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -286,7 +286,7 @@ body.dark .card {
 .asideCard:hover {
     scale: 1.03;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to bottom right, white, lightgreen);
+    background: linear-gradient(to bottom right, white, lightskyblue);
     cursor: pointer;
 }
 
@@ -316,7 +316,7 @@ body.dark .asideCard {
 body.dark .asideCard-highlight {
     display: flex;
     align-items: start;
-    background: linear-gradient(to top left, white, deeppink);
+    background: linear-gradient(to top left, white, mediumpurple);
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -333,6 +333,6 @@ body.dark .asideCard-highlight {
 body.dark .asideCard:hover {
     scale: 1.03;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to top left, white, darkgreen);
+    background: linear-gradient(to top left, white, royalblue);
     cursor: pointer;
 }
