@@ -60,3 +60,22 @@ function closeModal(modalMask) {
     document.body.style.overflow = '';
   }
 }
+
+
+//主页侧边栏收起展开控制
+ const toggleBtn = document.getElementById('toggleSidebar');
+ const sidebar = document.querySelector('aside');
+ const container = document.querySelector('.container');
+ toggleBtn.addEventListener('click', () => {
+     sidebar.classList.toggle('collapsed');
+     container.classList.toggle('sidebar-collapsed');
+ });
+ // 页面加载后 若干ms 自动收起侧边栏，这么做为了让用户知道侧边栏的存在。
+ window.addEventListener('DOMContentLoaded', () => {
+     setTimeout(() => {
+         sidebar.classList.add('collapsed');
+         container.classList.add('sidebar-collapsed');
+     }, 700); // 这里改时间，单位为ms
+ });
+
+ 
