@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Aviation Wiki</title>
   <link rel="stylesheet" href="css/mainpage-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> <!--Google 图标库-->
 </head>
 <body>
 
@@ -118,7 +119,19 @@
     </div>
 
     <h2>精选照片</h2>
-    <img src="img/mainpage.jpg" alt="B-7868" width="1000" class="center-img">
+    <div class="slideshow-container">
+      <img id="slideshow" src="img/index/1.jpg" alt="虹桥飞机轮播图" class="center-img">
+
+      <!--播放，暂停，下载-->
+      <div class="slideshow-controls">
+        <button id="togglePlay" class="icon-btn">
+          <span class="material-symbols-outlined">pause</span>
+        </button>
+        <button id="downloadBtn" class="icon-btn">
+          <span class="material-symbols-outlined">download</span>
+        </button>
+      </div>
+    </div>
   </main>
 
   <footer>

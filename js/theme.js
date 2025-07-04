@@ -78,3 +78,66 @@ function closeModal(modalMask) {
         document.body.style.overflow = '';
     }
 }
+
+
+// 主页底部照片轮播
+let img = document.getElementById("slideshow");  // 改为 let
+// filename
+let current = 1;
+const total = 82;
+let isSliding = false;
+
+function showNextImage() {
+    if (isSliding) return;
+    isSliding = true;
+
+    const next = new Image();
+    next.src = `img/index/${(current % total) + 1}.jpg`; //path
+    next.className = "center-img";
+    next.style.transform = "translateX(100%)";
+
+    const container = img.parentElement;
+    container.appendChild(next);
+
+    // 触发滑动动画
+    requestAnimationFrame(() => {
+        img.style.transform = "translateX(-100%)";
+        next.style.transform = "translateX(0)";
+    });
+
+    // 动画结束后替换 img 引用
+    setTimeout(() => {
+        container.removeChild(img);
+        next.id = "slideshow";
+        img = next; // 更新引用！
+        current = (current % total) + 1;
+        isSliding = false;
+    }, 1000); // 与 CSS 动画一致
+}
+
+// setInterval(showNextImage, 5000); // 废弃
+
+// 轮播照片操作
+let interval = setInterval(showNextImage, 5000);
+let isPaused = false;
+
+const toggleBtn2 = document.getElementById("togglePlay");
+const downloadBtn = document.getElementById("downloadBtn");
+
+toggleBtn2.addEventListener("click", () => {
+    if (isPaused) {
+        interval = setInterval(showNextImage, 5000);
+        toggleBtn2.querySelector("span").textContent = "pause";
+    } else {
+        clearInterval(interval);
+        toggleBtn2.querySelector("span").textContent = "play_arrow";
+    }
+    isPaused = !isPaused;
+});
+
+downloadBtn.addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.href = img.src;
+    link.download = `【Sam-Lab】-image-${current}.jpg`;
+    link.click();
+});
