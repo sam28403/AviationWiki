@@ -19,127 +19,89 @@ window.onload = () => {
     }
 };
 
-//主页侧边栏收起展开控制
-const toggleBtn = document.getElementById('toggleSidebar');
-const sidebar = document.querySelector('aside');
-const container = document.querySelector('.container');
-
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
-    container.classList.toggle('sidebar-collapsed');
-});
-
-// 页面加载后 若干ms 自动收起侧边栏，这么做为了让用户知道侧边栏的存在。
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        sidebar.classList.add('collapsed');
-        container.classList.add('sidebar-collapsed');
-    }, 700); // 这里改时间，单位为ms
-});
-
-// 以下是机场页面上关于点击弹出文本效果的改动
-// 事件委托处理所有卡片点击
-document.addEventListener('click', function(e) {
-    // 查找被点击的卡片元素
-    const card = e.target.closest('.card[data-modal-target]');
-    if (card) {
-        const modalId = card.dataset.modalTarget;
-        const modalMask = document.getElementById(modalId);
-
-        if (modalMask) {
-            modalMask.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-});
-
-// 处理遮罩层点击关闭
-document.querySelectorAll('.modal-mask').forEach(mask => {
-    mask.addEventListener('click', function(e) {
-        if (e.target === mask) {
-            closeModal(mask);
-        }
-    });
-});
-
-// 处理ESC键关闭
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-mask.active').forEach(mask => {
-            closeModal(mask);
-        });
-    }
-});
-
-// 关闭模态框函数
-function closeModal(modalMask) {
-    if (modalMask) {
-        modalMask.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-
 // 主页底部照片轮播
-let img = document.getElementById("slideshow");  // 改为 let
-// filename
-let current = 1;
-const total = 82;
-let isSliding = false;
+function initSlideshow({
+                           containerId,
+                           imgId,
+                           toggleId,
+                           downloadId,
+                           imgPath,
+                           totalCount,
+                           intervalMs = 5000,
+                       }) {
+    let img = document.getElementById(imgId);
+    let current = 1;
+    let isSliding = false;
+    let isPaused = false;
 
-function showNextImage() {
-    if (isSliding) return;
-    isSliding = true;
+    function showNextImage() {
+        if (isSliding) return;
+        isSliding = true;
 
-    const next = new Image();
-    next.src = `img/index/${(current % total) + 1}.jpg`; //path
-    next.className = "center-img";
-    next.style.transform = "translateX(100%)";
+        const next = new Image();
+        next.src = `${imgPath}/${(current % totalCount) + 1}.jpg`;
+        next.className = "center-img";
+        next.style.transform = "translateX(100%)";
 
-    const container = img.parentElement;
-    container.appendChild(next);
+        const container = document.getElementById(containerId);
+        container.appendChild(next);
 
-    // 触发滑动动画
-    requestAnimationFrame(() => {
-        img.style.transform = "translateX(-100%)";
-        next.style.transform = "translateX(0)";
+        requestAnimationFrame(() => {
+            img.style.transform = "translateX(-100%)";
+            next.style.transform = "translateX(0)";
+        });
+
+        setTimeout(() => {
+            container.removeChild(img);
+            next.id = imgId;
+            img = next;
+            current = (current % totalCount) + 1;
+            isSliding = false;
+        }, 1000);
+    }
+
+    let interval = setInterval(showNextImage, intervalMs);
+
+    const toggleBtn = document.getElementById(toggleId);
+    const downloadBtn = document.getElementById(downloadId);
+
+    toggleBtn.addEventListener("click", () => {
+        if (isPaused) {
+            interval = setInterval(showNextImage, intervalMs);
+            toggleBtn.querySelector("span").textContent = "pause";
+        } else {
+            clearInterval(interval);
+            toggleBtn.querySelector("span").textContent = "play_arrow";
+        }
+        isPaused = !isPaused;
     });
 
-    // 动画结束后替换 img 引用
-    setTimeout(() => {
-        container.removeChild(img);
-        next.id = "slideshow";
-        img = next; // 更新引用！
-        current = (current % total) + 1;
-        isSliding = false;
-    }, 1000); // 与 CSS 动画一致
+    downloadBtn.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.href = img.src;
+        link.download = `image-${current}.jpg`;
+        link.click();
+    });
 }
 
-// setInterval(showNextImage, 5000); // 废弃
-
-// 轮播照片操作
-let interval = setInterval(showNextImage, 5000);
-let isPaused = false;
-
-const toggleBtn2 = document.getElementById("togglePlay");
-const downloadBtn = document.getElementById("downloadBtn");
-
-toggleBtn2.addEventListener("click", () => {
-    if (isPaused) {
-        interval = setInterval(showNextImage, 5000);
-        toggleBtn2.querySelector("span").textContent = "pause";
-    } else {
-        clearInterval(interval);
-        toggleBtn2.querySelector("span").textContent = "play_arrow";
-    }
-    isPaused = !isPaused;
+initSlideshow({
+    containerId: "slider1",
+    imgId: "slideshow1",
+    toggleId: "togglePlay1",
+    downloadId: "downloadBtn1",
+    imgPath: "img/C909",
+    totalCount: 12,
+    intervalMs: 5000
 });
 
-downloadBtn.addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = img.src;
-    link.download = `【Sam-Lab】-image-${current}.jpg`;
-    link.click();
+initSlideshow({
+    containerId: "slider2",
+    imgId: "slideshow2",
+    toggleId: "togglePlay2",
+    downloadId: "downloadBtn2",
+    imgPath: "img/C919",
+    totalCount: 14,
+    intervalMs: 5000
 });
 
 // Fade in
