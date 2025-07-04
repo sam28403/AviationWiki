@@ -264,11 +264,15 @@ body.dark nav a:hover {
     padding: 20px;
     width: 400px;
     margin: 0 auto;
-    transition: all 0.3s ease;
+    /*transition: all 0.3s ease;*/
     position: relative;
 
     text-decoration: none; /* 去掉默认下划线 */
     color: inherit;         /* 继承文字颜色 */
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .card:hover {
@@ -328,6 +332,23 @@ body.dark .code-label {
 .info {
     z-index: 1;
 }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /*侧边栏*/
 .asideCard {
     display: flex;
@@ -592,10 +613,14 @@ aside.collapsed nav {
     width: 90%;
     height: 200px; /*后续删除*/
     margin: 0 auto;
-    transition: all 0.3s ease;
+    /*transition: all 0.3s ease;*/
 
     text-decoration: none; /* 去掉默认下划线 */
     color: inherit;         /* 继承文字颜色 */
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .card-bbs:hover {
@@ -622,5 +647,10 @@ body.dark .card-bbs {
     height: 200px; /*后续删除*/
     margin: 0 auto;
     transition: all 0.3s ease;
+}
+
+.card-bbs.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
