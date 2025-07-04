@@ -176,6 +176,13 @@ body.dark nav a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.center-video {
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 12px;
+}
 
 /*Card*/
 
@@ -231,6 +238,52 @@ body.dark .card {
     width: 400px;
     margin: 0 auto;
     transition: all 0.3s ease;
+}
+
+.code-label {
+    position: absolute;
+    bottom: 6px;
+    right: 12px;
+    font-family: Consolas, monospace;
+    font-style: italic;
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 0;
+}
+
+body.dark .code-label {
+    color: rgba(255, 255, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.code-label-small {
+    position: absolute;
+    bottom: 6px;
+    right: 12px;
+    font-family: Consolas, monospace;
+    font-style: italic;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 0;
+}
+
+body.dark .code-label-small {
+    color: rgba(255, 255, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.info {
+    z-index: 2;
 }
 
 /*侧边栏*/
@@ -380,16 +433,16 @@ body.dark .asideCard:hover {
     }
 }
 
-/*BBS卡片样式*/
+/*小卡片样式*/
 .card-bbs {
+    position: relative;
     display: flex;
     align-items: center;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 90%;
-    height: 200px; /*后续删除*/
+    width: 40%;
     margin: 0 auto;
     transition: all 0.3s ease;
 }
@@ -414,12 +467,14 @@ body.dark .card-bbs {
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(255, 255, 255, 0.1);
     padding: 20px;
-    width: 90%;
-    height: 200px; /*后续删除*/
+    width: 40%;
     margin: 0 auto;
     transition: all 0.3s ease;
 }
 
+.small-card-content {
+    line-height: 10px;
+}
 
 /* 模态框部分 */
 .modal-mask {
@@ -459,6 +514,19 @@ body.dark .card-bbs {
     overflow-y: auto;
 }
 
+body.dark .modal {
+    background: black;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    height:90%;
+    max-height: 700px;
+    box-shadow: 0 25px 50px rgba(127, 250, 255, 0.3);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /* 隐藏默认滚动条轨道 */
 .modal::-webkit-scrollbar {
   width: 8px; /* 设置滚动条宽度 */
@@ -489,6 +557,11 @@ body.dark .card-bbs {
     padding: 30px;
     line-height: 1.7;
     color: #555;
+    text-align: justify;
+}
+
+body.dark .modal-content {
+    color: #eee;
 }
 
 .modal-content p {

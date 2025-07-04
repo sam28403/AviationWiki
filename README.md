@@ -10,7 +10,7 @@ Aviation Wiki is a platform which provides aircraft and airport information.
   - 🟢网站首页样貌提升工程
 - 🟡词条
   - 🟡Boeing
-  - 🟡Airbus
+  - 🟢Airbus
   - 🟢Airport
 - 🔴用户登录界面
 - 🔴用户界面
@@ -19,6 +19,6 @@ Aviation Wiki is a platform which provides aircraft and airport information.
 - 🟡预研展示内容（样板房）
 - 🔴私信功能演示
 
-## 项目完成度：11%
+## 项目完成度：20%
 
-[◼◼◼◼◼◣. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .] 11 out of 100
+[◼◼◼◼◼◼◼◼◼◼ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .] 20 out of 100
