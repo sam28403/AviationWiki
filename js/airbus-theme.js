@@ -62,20 +62,23 @@ function closeModal(modalMask) {
 }
 
 
-//主页侧边栏收起展开控制
- const toggleBtn = document.getElementById('toggleSidebar');
- const sidebar = document.querySelector('aside');
- const container = document.querySelector('.container');
- toggleBtn.addEventListener('click', () => {
-     sidebar.classList.toggle('collapsed');
-     container.classList.toggle('sidebar-collapsed');
- });
- // 页面加载后 若干ms 自动收起侧边栏，这么做为了让用户知道侧边栏的存在。
- window.addEventListener('DOMContentLoaded', () => {
-     setTimeout(() => {
-         sidebar.classList.add('collapsed');
-         container.classList.add('sidebar-collapsed');
-     }, 700); // 这里改时间，单位为ms
- });
+// Fade in
+// 创建观察器
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in'); // 添加动画类
+            observer.unobserve(entry.target); // 只触发一次
+        }
+    });
+}, {
+    threshold: 0.2 // 元素进入视口 20% 就触发
+});
 
+// 选中所有卡片
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => observer.observe(card));
+
+const cards_bbs = document.querySelectorAll('.card-bbs');
+cards_bbs.forEach(card => observer.observe(card));
  
