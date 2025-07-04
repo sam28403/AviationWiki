@@ -437,6 +437,7 @@ body.dark .modal {
     padding: 30px;
     line-height: 1.7;
     color: #222;
+    text-align: justify;
 }
 
 body.dark .modal-content {
