@@ -9,8 +9,8 @@ Aviation Wiki is a platform which provides aircraft and airport information.
   - 🟡博客界面设计
   - 🟢网站首页样貌提升工程
 - 🟡词条
-  - 🔴Boeing
-  - 🔴Airbus
+  - 🟡Boeing
+  - 🟡Airbus
   - 🟢Airport
 - 🔴用户登录界面
 - 🔴用户界面
