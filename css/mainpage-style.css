@@ -1,3 +1,5 @@
+/*主页特殊主题，仅对主页生效！！*/
+
 :root {
     --light-bg: #f9f9f9;
     --light-sidebar: #dddddd;
@@ -15,19 +17,38 @@
 body {
     margin: 0;
     font-family: "Segoe UI", "微软雅黑", sans-serif;
-    background-color: var(--light-bg);
+    /*background-color: var(--light-bg);*/
+    background: linear-gradient(to bottom, lightskyblue, var(--light-bg));
     color: var(--light-text);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark {
-    background-color: var(--dark-bg);
+    /*background-color: var(--dark-bg);*/
+    background: linear-gradient(to bottom, midnightblue, var(--dark-bg));
     color: var(--dark-text);
 }
 
 .title {
     font-size: 60px;
     font-weight:  bold;
+}
+
+.subtitle {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.cardtext {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
+body.dark .cardtext {
+    color: white;
 }
 
 .container {
@@ -59,7 +80,8 @@ body.dark header {
 
 aside {
     grid-area: sidebar;
-    background-color: var(--light-sidebar);
+    /*background-color: var(--light-sidebar);*/
+    background: linear-gradient(to bottom, skyblue, var(--light-sidebar));
     color: #333;
     padding: 20px;
     transition: background-color 0.3s ease, color 0.3s ease, width 0.5s ease, padding 0.5s ease;
@@ -67,19 +89,22 @@ aside {
 }
 
 body.dark aside {
-    background-color: var(--dark-sidebar);
+    /*background-color: var(--dark-sidebar);*/
+    background: linear-gradient(to bottom, darkblue, var(--dark-sidebar));
     color: var(--dark-text);
 }
 
 main {
     grid-area: main;
     padding: 20px;
-    background-color: var(--light-bg);
+    /*background-color: var(--light-bg);*/
+    background: linear-gradient(to bottom, lightskyblue, var(--light-bg));
     transition: background-color 0.3s ease;
 }
 
 body.dark main {
-    background-color: var(--dark-bg);
+    /*background-color: var(--dark-bg);*/
+    background: linear-gradient(to bottom, midnightblue, var(--dark-bg));
 }
 
 footer {
@@ -198,6 +223,10 @@ body.dark nav a:hover {
     width: 400px;
     margin: 0 auto;
     transition: all 0.3s ease;
+    position: relative;
+
+    text-decoration: none; /* 去掉默认下划线 */
+    color: inherit;         /* 继承文字颜色 */
 }
 
 .card:hover {
@@ -231,6 +260,25 @@ body.dark .card {
     width: 400px;
     margin: 0 auto;
     transition: all 0.3s ease;
+}
+
+.code-label {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-family: Consolas, monospace;
+    font-style: italic;
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    pointer-events: none;
+    user-select: none;
+}
+
+body.dark .code-label {
+    color: rgba(255, 255, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.3);
 }
 
 /*侧边栏*/
@@ -322,7 +370,7 @@ body.dark .asideCard:hover {
     cursor: pointer;
 }
 
-/*BBS飞机飞行*/
+/*页首飞机飞行*/
 .flight-container {
     position: relative;
     width: 100%;
@@ -380,6 +428,112 @@ body.dark .asideCard:hover {
     }
 }
 
+.sun, .moon-container {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 10;
+    font-size: 60px;
+}
+
+/* 默认只显示太阳 */
+.sun {
+    animation: spin 6s linear infinite;
+}
+
+/* 隐藏月亮容器 */
+body:not(.dark) .moon-container {
+    display: none;
+}
+body.dark .sun {
+    display: none;
+}
+
+/* 打呼噜文本 */
+.snore {
+    position: absolute;
+    top: 0;
+    right: 60px;
+    font-size: 20px;
+    opacity: 0;
+    animation: snoreFade 3s ease-in-out infinite;
+    color: #fff;
+}
+
+/* 打呼噜动画 */
+@keyframes snoreFade {
+    0% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* 太阳旋转动画 */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+
+
+
+/*主页侧边栏收起*/
+/* 按钮样式：固定在左上角 */
+#toggleSidebar {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    z-index: 1000;
+
+    background-color: royalblue;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+#toggleSidebar:hover {
+    background-color: #1e90ff;
+    transform: scale(1.05);
+}
+
+/* 收起时宽度为0，隐藏内部内容 */
+aside.collapsed {
+    width: 0 !important;
+    padding: 0 !important;
+}
+
+/* 修改网格布局时隐藏侧边栏 */
+.container.sidebar-collapsed {
+    grid-template-columns: 0 1fr;
+}
+
+/* 让侧边栏内内容淡入淡出 */
+aside nav {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+aside.collapsed nav {
+    opacity: 0;
+    pointer-events: none; /* 防止点击收起状态下的元素 */
+}
+
+
+/*宽卡片*/
 /*BBS卡片样式*/
 .card-bbs {
     display: flex;
@@ -392,6 +546,9 @@ body.dark .asideCard:hover {
     height: 200px; /*后续删除*/
     margin: 0 auto;
     transition: all 0.3s ease;
+
+    text-decoration: none; /* 去掉默认下划线 */
+    color: inherit;         /* 继承文字颜色 */
 }
 
 .card-bbs:hover {
@@ -419,3 +576,4 @@ body.dark .card-bbs {
     margin: 0 auto;
     transition: all 0.3s ease;
 }
+

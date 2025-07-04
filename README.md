@@ -1,4 +1,5 @@
 # About this project
+
 Aviation Wiki is a platform which provides aircraft and airport information. 
 ## 项目进度
 🔴未开始   🟡进行中   🟢已完成
@@ -6,8 +7,8 @@ Aviation Wiki is a platform which provides aircraft and airport information.
   - 🟢底层界面设计
   - 🟢侧边栏设计
   - 🔴博客界面设计
-  - 🔴网站首页样貌提升工程
-- 🔴词条
+  - 🟢网站首页样貌提升工程
+- 🟡词条
   - 🔴Boeing
   - 🔴Airbus
   - 🟡Airport
