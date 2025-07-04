@@ -214,6 +214,7 @@ body.dark nav a:hover {
 .contents {
     font-size: 20px;
     text-align: justify;
+    line-height: 35px;
 }
 
 .contents2 {
@@ -241,7 +242,10 @@ body.dark nav a:hover {
     padding: 20px;
     width: 400px;
     margin: 0 auto;
-    transition: all 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(30px) scale(1);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .card:hover {
@@ -276,6 +280,52 @@ body.dark .card {
     margin: 0 auto;
     transition: all 0.3s ease;
 }
+
+.code-label {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-family: Consolas, monospace;
+    font-style: italic;
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 0;
+}
+
+body.dark .code-label {
+    color: rgba(255, 255, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.info {
+    z-index: 1;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.card.fade-in:hover {
+    transform: translateY(0) scale(1.03);  /* 保留Y位置，放大 */
+}
+
 
 /*侧边栏*/
 .asideCard {
