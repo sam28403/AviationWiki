@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Aviation Wiki</title>
+  <link rel="stylesheet" href="css/airbus-style.css">
+</head>
+<body>
+<div class="container">
+  <header class="page-header">
+    <a href="index.html" class="home-link">
+      <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+      <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+    </a>
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </header>
+
+  <aside>
+    <nav>
+      <ul>
+        <a href="#" class="asideCard">波音</a>
+        <a href="Airbus.html" class="asideCard-highlight">空中客车</a>
+        <a href="airport.html" class="asideCard">机场</a>
+        <a href="bbs.html" class="asideCard">讨论区</a>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <h1>空中客车</h1>
+    <hr>
+    <br>
+    <div id="Airbus_image">
+      <img src="img/Airbus_intro.jpg" class="AirbusImg-intro">
+    </div>
+    <div class="airbus-textintroduction">
+      <p>空中客车公司（Airbus S.A.S．），1970年由法国、德国、西班牙与英国共同创立，总部位于法国图卢兹，是欧洲军火供应商空中客车集团旗下企业。</p>
+      <p>1994年6月，空中客车公司宣布了其超大型运输机计划A3XX（后更名为A380）。2001年初，A380于正式定型。2005年4月，空中客车A380完成首飞。2007年10月，A380投入使用。 2015年10月，中国航空器材集团公司与空中客车公司签订采购30架A330系列和100架A320系列飞机框架协议。  2018年7月，空中客车与空客（北京）工程技术中心签署合作协议。同年12月，空中客车与南京航天航空大学举行“航空智能结构联合实验室”揭牌仪式。 2022年1月，空中客车与成都市及Tarmac Aerosave公司、欧航航材签署合作协议，将在成都双流建立首个以可持续发展理念为主导的飞机“全生命周期”服务项目。 2023年11月，空中客车全资子公司——欧航（成都）航空材料有限责任公司正式对外亮相。 2025年3月，空中客车公司决定建造ExoMars着陆器关键系统，包括着陆平台所需的机械、热控和推进系统。 同年5月26日，越南越捷航空向空中客车公司订购20架空客A330-900宽体飞机。 2025年5月28日，中银航空租赁向空中客车公司购买六架空客A320NEO飞机及三架空客A321NEO飞机</p>
+      <p>2018年12月，空中客车位列《2018世界品牌500强》榜单第457位。 2019年7月，位列《财富世界500强》排行榜第123位。 2022年，位列《财富世界500强》行业榜第207位。 2024年8月，位列2024年《财富世界500强》第183位。 </p>
+    </div>
+    <br>
+    <hr>
+    <!-- 飞机卡片 -->
+     <br>
+     <h1>机型介绍</h1>
+     <br>
+    <!-- a380 & a350 -->
+     <div class="card-list">
+
+      <div class="card" data-modal-target="modalA380">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg" alt="Airbus A380" width="150">
+        <div class="info">
+          <h1>Airbus A380</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+      <div class="card" data-modal-target="modalA350">
+        <img src="img/AirbusA350.jpg" alt="AirbusA350" width="150">
+        <div class="info">
+          <h1>Airbus A350</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+    </div>
+    <!-- a320 & a320neo -->
+    <div class="card-list">
+
+      <div class="card" data-modal-target="modalA320">
+        <img src="img/airbus-A320.jpg" alt="Airbus A320" width="150">
+        <div class="info">
+          <h1>Airbus A320</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+      <div class="card" data-modal-target="modalA320neo">
+        <img src="img/airbus-A320neo.jpg" alt="Airbus A320neo" width="150">
+        <div class="info">
+          <h1>Airbus A320neo</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- a318 & a319 -->
+    <div class="card-list">
+
+      <div class="card" data-modal-target="modalA318">
+        <img src="img/airbus-a318.jpg" alt="Airbus A318" width="150">
+        <div class="info">
+          <h1>Airbus A318</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+      <div class="card" data-modal-target="modalA319">
+        <img src="img/airbus-A319.jpg" alt="AirbusA319" width="150">
+        <div class="info">
+          <h1>Airbus A319</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-list">
+
+      <div class="card" data-modal-target="modalA321">
+        <img src="img/airbus-a321.jpg" alt="Airbus A321" width="150">
+        <div class="info">
+          <h1>Airbus A321</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+      <div class="card" data-modal-target="modalA330">
+        <img src="img/airbus-A330.jpg" alt="Airbus A330" width="150">
+        <div class="info">
+          <h1>Airbus A330</h1>
+          <p><strong>Introduction</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <footer>
+    版權所有 © 2025 Sam-Lab Studio
+  </footer>
+</div>
+
+<div class="modal-mask" id="modalA380">
+  <div class="modal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg" alt="A380图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA350">
+  <div class="modal">
+      <img src="img/AirbusA350.jpg" alt="A350图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA320">
+  <div class="modal">
+      <img src="img/airbus-A320.jpg" alt="A320图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA320neo">
+  <div class="modal">
+      <img src="img/airbus-A320neo.jpg" alt="A320neo图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA318">
+  <div class="modal">
+      <img src="img/airbus-a318.jpg" alt="A318图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA319">
+  <div class="modal">
+      <img src="img/airbus-A319.jpg" alt="A319图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA321">
+  <div class="modal">
+      <img src="img/airbus-a321.jpg" alt="A321图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="modalA330s">
+  <div class="modal">
+      <img src="img/airbus-A330.jpg" alt="A330图片" class="modal-img">
+      <div class="modal-content">
+          <p></p>
+      </div>
+  </div>
+</div>
+
+
+<script src="js/theme.js"></script>
+</body>
+</html>

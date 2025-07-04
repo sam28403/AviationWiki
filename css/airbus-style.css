@@ -420,6 +420,7 @@ body.dark .card-bbs {
     transition: all 0.3s ease;
 }
 
+
 /* 模态框部分 */
 .modal-mask {
     position: fixed;
@@ -455,6 +456,26 @@ body.dark .card-bbs {
     transform: scale(0.8);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow-y: auto;
+}
+
+/* 隐藏默认滚动条轨道 */
+.modal::-webkit-scrollbar {
+  width: 8px; /* 设置滚动条宽度 */
+  background: transparent; /* 透明轨道 */
+}
+
+/* 滚动条滑块 - 透明效果 */
+.modal::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); /* 半透明黑色 */
+  border-radius: 4px;
+  border: 2px solid transparent; /* 透明边框 */
+  background-clip: content-box; /* 重要：背景不延伸到边框 */
+}
+
+/* 悬停时显示更明显的滑块 */
+.modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .modal-mask.active .modal {
@@ -502,3 +523,19 @@ body.dark .card-bbs {
     }
 }
 
+/*空客介绍图片*/
+.AirbusImg-intro
+{
+    width:400px;
+    margin-top: 10px;
+    margin-right:20px;
+    float:left;
+}
+
+.airbus-textintroduction p
+{
+    line-height: 35px;
+    text-align: justify;
+    font-size: 20px;
+    text-indent: 2em;
+}
