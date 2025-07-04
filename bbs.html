@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Aviation BBS</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bbs-style.css">
 </head>
 <body>
 <div class="container">
@@ -25,7 +25,6 @@
       </ul>
     </nav>
   </aside>
-
   <main>
     <div class="flight-container">
       <div class="plane">✈️</div>
@@ -33,51 +32,79 @@
       <div class="cloud">☁️</div>
       <div class="cloud">☁️</div>
     </div>
-    <div class="card-list">
-      <div class="card-bbs">
-
+    <div class="main-content">
+      <div class="card-list">
+        <!-- 帖子卡片们 -->
+        <div class="card-bbs">
+          <span class="bbs-top">置顶</span>
+          <a class="bbs-title" href="#">波音737MAX安全性分析</a>
+          <div class="bbs-meta">
+            <a class="bbs-author" href="#">
+              <img class="bbs-avatar" src="./img/SHA_intro.jpeg" alt="飞行员A">
+              发帖人：飞行员A
+            </a>
+            <span class="bbs-time">2025-07-03 18:05</span>
+          </div>
+        </div>
+        <div class="card-bbs">
+          <span class="bbs-top">置顶</span>
+          <a class="bbs-title" href="#">空客A350体验分享</a>
+          <div class="bbs-meta">
+            <a class="bbs-author" href="#">
+              <img class="bbs-avatar" src="./img/HFE & TXN.png" alt="旅客B">
+              发帖人：旅客B
+            </a>
+            <span class="bbs-time">2025-07-02 14:12</span>
+          </div>
+        </div>
+        <div class="card-bbs">
+          <a class="bbs-title" href="#">机场安检流程讨论</a>
+          <div class="bbs-meta">
+            <a class="bbs-author" href="#">
+              <img class="bbs-avatar" src="./img/Airbus.png" alt="安检员C">
+              发帖人：安检员C
+            </a>
+            <span class="bbs-time">2025-07-01 09:45</span>
+          </div>
+        </div>
+        <div class="card-bbs">
+          <a class="bbs-title" href="#">航空公司服务对比</a>
+          <div class="bbs-meta">
+            <a class="bbs-author" href="#">
+              <img class="bbs-avatar" src="./img/airport.png" alt="乘客D">
+              发帖人：乘客D
+            </a>
+            <span class="bbs-time">2025-06-30 20:30</span>
+          </div>
+        </div>
+        <div class="card-bbs">
+          <a class="bbs-title" href="#">飞行常见问题解答</a>
+          <div class="bbs-meta">
+            <a class="bbs-author" href="#">
+              <img class="bbs-avatar" src="./img/Boeing.svg" alt="管理员">
+              发帖人：管理员
+            </a>
+            <span class="bbs-time">2025-06-29 16:00</span>
+          </div>
+        </div>
       </div>
-
-
-      <div class="card-bbs">
-
-      </div>
-
-      <div class="card-bbs">
-
-      </div>
-
-
-      <div class="card-bbs">
-
-      </div>
-
-      <div class="card-bbs">
-
-      </div>
-
-
-      <div class="card-bbs">
-
-      </div>
-
-
-
-    </div>
-
-    <div class="flight-container">
-      <div class="plane">✈️</div>
-      <div class="cloud">☁️</div>
-      <div class="cloud">☁️</div>
-      <div class="cloud">☁️</div>
+      <aside class="hot-topics">
+        <h3>今日热议</h3>
+        <form>
+          <label for="topic">你最关心的话题：</label>
+          <input type="text" id="topic" name="topic" placeholder="输入话题">
+          <button type="submit">提交</button>
+        </form>
+        <ul class="hot-list">
+          <li>波音737MAX安全性</li>
+          <li>空客A350体验</li>
+          <li>机场安检流程</li>
+        </ul>
+      </aside>
     </div>
   </main>
-
   <footer>
     版權所有 © 2025 Sam-Lab Studio
   </footer>
 </div>
-
 <script src="js/theme.js"></script>
-</body>
-</html>
