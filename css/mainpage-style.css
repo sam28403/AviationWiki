@@ -214,6 +214,14 @@ body.dark nav a:hover {
     left: 0;
 }
 
+.center-video {
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 12px;
+}
+
 /*轮播图片操作*/
 .icon-btn {
     background: rgba(0, 0, 0, 0.4);
@@ -271,7 +279,7 @@ body.dark nav a:hover {
     color: inherit;         /* 继承文字颜色 */
 
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(1);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -283,7 +291,7 @@ body.dark nav a:hover {
 
 body.dark .card:hover {
     transform: scale(1.03);
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 24px rgba(255, 255, 255, 0.2);
     background: linear-gradient(to bottom right, gray, dodgerblue);
 }
 
@@ -346,7 +354,11 @@ body.dark .code-label {
 
 .card.fade-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+}
+
+.card.fade-in:hover {
+    transform: translateY(0) scale(1.03);  /* 保留Y位置，放大 */
 }
 
 /*侧边栏*/
@@ -619,7 +631,7 @@ aside.collapsed nav {
     color: inherit;         /* 继承文字颜色 */
 
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(1);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -651,6 +663,9 @@ body.dark .card-bbs {
 
 .card-bbs.fade-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
+.card-bbs.fade-in:hover {
+    transform: translateY(0) scale(1.03);
+}
