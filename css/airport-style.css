@@ -399,6 +399,29 @@ body.dark .asideCard:hover {
     visibility: visible;
 }
 
+/* 模态框部分 */
+.modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 1000;
+}
+
+.modal-mask.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* 模态框样式 */
 .modal {
     background: white;
@@ -407,10 +430,11 @@ body.dark .asideCard:hover {
     max-width: 700px;
     height:90%;
     max-height: 700px;
-    box-shadow: 0 25px 50px rgba(0,0,255,0.3);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     transform: scale(0.8);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow-y: auto;
 }
 
 body.dark .modal {
@@ -426,6 +450,25 @@ body.dark .modal {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* 隐藏默认滚动条轨道 */
+.modal::-webkit-scrollbar {
+    width: 8px; /* 设置滚动条宽度 */
+    background: transparent; /* 透明轨道 */
+}
+
+/* 滚动条滑块 - 透明效果 */
+.modal::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* 半透明黑色 */
+    border-radius: 4px;
+    border: 2px solid transparent; /* 透明边框 */
+    background-clip: content-box; /* 重要：背景不延伸到边框 */
+}
+
+/* 悬停时显示更明显的滑块 */
+.modal::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
 .modal-mask.active .modal {
     transform: scale(1);
     opacity: 1;
@@ -436,7 +479,7 @@ body.dark .modal {
 .modal-content {
     padding: 30px;
     line-height: 1.7;
-    color: #222;
+    color: #555;
     text-align: justify;
 }
 
@@ -451,25 +494,25 @@ body.dark .modal-content {
 }
 
 .modal-img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
 }
 
 .modal-content {
-  padding: 20px;
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
     }
-    
+
     .subtitle {
         font-size: 1.1rem;
     }
-    
+
     .feature-card {
         width: 100%;
         max-width: 300px;
