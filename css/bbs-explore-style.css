@@ -640,6 +640,11 @@ body.dark .hot-topics input[type="text"] {
     color: black;
 }
 
+body.dark .bbs1-1 {
+    background: #333333;
+    color: white;
+}
+
 .bbs1-2 {
     display: inline-block;
     border-radius: 10px;
