@@ -575,3 +575,34 @@ body.dark .card-bbs {
 .card-bbs.fade-in:hover {
     transform: translateY(0) scale(1.03);
 }
+
+/*地图按钮*/
+.button-maps {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none; /* 去掉下划线 */
+    display: inline-block;  /* 允许缩放 */
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button-maps:hover {
+    transform: scale(1.03);  /* 关键：hover 时使用 transform */
+    background-color: mediumpurple;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.body.dark .button-maps {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+.body.dark .button-maps:hover {
+    scale: 1.03;
+    background-color: mediumpurple;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+}
