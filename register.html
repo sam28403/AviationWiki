@@ -34,15 +34,19 @@
 
             <!-- 登录框 -->
             <div class="login-container">
-                <h2>用户登录</h2>
-                <form id="loginForm">
+                <h2>用户注册</h2>
+                <form id="registerForm">
                     <div class="input-group">
                         <label for="username">账号</label>
                         <input type="text" id="username" required>
                     </div>
                     <div class="input-group">
-                        <label for="password">密码</label>
-                        <input type="password" id="password" required>
+                        <label for="password1">密码</label>
+                        <input type="password" id="password1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password2">确认密码</label>
+                        <input type="password" id="password2" required>
                     </div>
                     <div class="input-group">
                         <label for="captchaInput">验证码</label>
@@ -52,8 +56,8 @@
                         </div>
                     </div>
                     <div class="button-group">
-                        <button type="submit" class="btn btn-login">登录</button>
-                        <button type="button" class="btn btn-register" onclick="location.href='register.html'">没有账号？去注册</button>
+                        <button type="submit" class="btn btn-login">注册</button>
+                        <button type="button" class="btn btn-register" onclick="location.href='login.html'">返回登录界面</button>
                     </div>
                 </form>
             </div>
@@ -65,6 +69,6 @@
     </footer>
 </div>
 
-<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>
