@@ -1,23 +1,51 @@
-function openModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'block';
+// 以下是机场页面上关于点击弹出文本效果的改动
+// 事件委托处理所有卡片点击
+document.addEventListener('click', function(e) {
+    // 任何带 data-modal-target 的元素都可以触发模态框
+    const trigger = e.target.closest('[data-modal-target]');
+    if (trigger) {
+        const modalId = trigger.dataset.modalTarget;
+        const modalMask = document.getElementById(modalId);
 
-    // 填充现有信息
-    document.getElementById('modal-name').value = document.getElementById('name').textContent;
-    document.getElementById('modal-title').value = document.getElementById('title').textContent;
-    document.getElementById('modal-birthday').value = document.getElementById('birthday').textContent;
-    document.getElementById('modal-address').value = document.getElementById('address').textContent;
+        if (modalMask) {
+            modalMask.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+});
+
+// 处理遮罩层点击关闭
+document.querySelectorAll('.modal-mask').forEach(mask => {
+    mask.addEventListener('click', function(e) {
+        if (e.target === mask) {
+            closeModal(mask);
+        }
+    });
+});
+
+// 处理ESC键关闭
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-mask.active').forEach(mask => {
+            closeModal(mask);
+        });
+    }
+});
+
+// 关闭模态框函数
+function closeModal(modalMask) {
+    if (modalMask) {
+        modalMask.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
 
-function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
-}
 
 function saveInfo() {
     // 保存照片
     const photoInput = document.getElementById('photo-input');
     const photoDisplay = document.getElementById('photo-display');
+    console.log("信息已保存");
     if (photoInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function (e) {
@@ -28,11 +56,20 @@ function saveInfo() {
     }
 
     // 保存其他信息
-    document.getElementById('name').textContent = document.getElementById('modal-name').value || '暂无';
-    document.getElementById('title').textContent = document.getElementById('modal-title').value || '暂无';
-    document.getElementById('birthday').textContent = document.getElementById('modal-birthday').value || '暂无';
-    document.getElementById('address').textContent = document.getElementById('modal-address').value || '暂无';
+    document.getElementById('name').textContent = document.getElementById('modal-name').value || 'NULL';
+    document.getElementById('title').textContent = document.getElementById('modal-title').value || 'NULL';
+    document.getElementById('birthday').textContent = document.getElementById('modal-birthday').value || 'NULL';
+    document.getElementById('address').textContent = document.getElementById('modal-address').value || 'NULL';
+    document.getElementById('airport').textContent = document.getElementById('modal-airport').value || 'NULL';
+    document.getElementById('favplane').textContent = document.getElementById('modal-favplane').value || 'NULL';
+    document.getElementById('favairport').textContent = document.getElementById('modal-favairport').value || 'NULL';
 
     alert('修改成功');
-    closeModal();
+    const modalMask = document.getElementById('modalAAA');
+    closeModal(modalMask);
+}
+
+function closeModalById(id) {
+    const modalMask = document.getElementById(id);
+    closeModal(modalMask);
 }
