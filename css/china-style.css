@@ -27,7 +27,7 @@ body.dark {
 
 .title {
     font-size: 60px;
-    font-weight:  bold;
+    font-weight: bold;
 }
 
 .container {
@@ -163,8 +163,10 @@ body.dark nav a:hover {
     position: relative;
     width: 90%;
     max-width: 100%;
-    height: auto; /* 关键：添加高度约束 */
-    aspect-ratio: 3 / 2; /* 建议添加一个比例值，防止容器塌陷 */
+    height: auto;
+    /* 关键：添加高度约束 */
+    aspect-ratio: 3 / 2;
+    /* 建议添加一个比例值，防止容器塌陷 */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 12px;
@@ -193,6 +195,7 @@ body.dark nav a:hover {
     font-size: 24px;
     transition: background 0.3s;
 }
+
 .icon-btn:hover {
     background: rgba(0, 0, 0, 0.7);
 }
@@ -289,8 +292,10 @@ body.dark .card {
     font-style: italic;
     font-size: 60px;
     font-weight: bold;
-    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
-    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    color: rgba(0, 51, 102, 0.2);
+    /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white;
+    /* 提高亮底可读性 */
     pointer-events: none;
     user-select: none;
 
@@ -311,6 +316,7 @@ body.dark .code-label {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -323,7 +329,8 @@ body.dark .code-label {
 }
 
 .card.fade-in:hover {
-    transform: translateY(0) scale(1.03);  /* 保留Y位置，放大 */
+    transform: translateY(0) scale(1.03);
+    /* 保留Y位置，放大 */
 }
 
 
@@ -341,8 +348,10 @@ body.dark .code-label {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none; /* 去掉下划线 */
-    color: inherit; /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 .asideCard-highlight {
@@ -358,8 +367,10 @@ body.dark .code-label {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none;  /* 去掉下划线 */
-    color: inherit;         /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 .asideCard:hover {
@@ -388,8 +399,10 @@ body.dark .asideCard {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none; /* 去掉下划线 */
-    color: inherit; /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 body.dark .asideCard-highlight {
@@ -405,8 +418,10 @@ body.dark .asideCard-highlight {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none;  /* 去掉下划线 */
-    color: inherit;         /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 body.dark .asideCard:hover {
@@ -414,4 +429,52 @@ body.dark .asideCard:hover {
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to top left, white, royalblue);
     cursor: pointer;
+}
+
+/* 表格样式 */
+.table {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    text-align: center;
+    width: 100%;
+}
+
+.table th {
+    border: 1px solid #000000;
+    text-align: center;
+
+}
+
+.table td {
+    border: 1px solid #000000;
+    text-align: center;
+
+}
+
+.table tr.first {
+    background-color: #a7a7a7;
+}
+
+/* 表格暗色样式 */
+body.dark .table {
+    border-collapse: collapse;
+    border: 1px solid #ffffff;
+    text-align: center;
+    width: 100%;
+}
+
+body.dark .table th {
+    border: 1px solid #ffffff;
+    text-align: center;
+
+}
+
+body.dark .table td {
+    border: 1px solid #ffffff;
+    text-align: center;
+
+}
+
+body.dark .table tr.first {
+    background-color: #585858;
 }

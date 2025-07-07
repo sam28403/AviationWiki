@@ -27,7 +27,7 @@ body.dark {
 
 .title {
     font-size: 60px;
-    font-weight:  bold;
+    font-weight: bold;
 }
 
 .container {
@@ -250,8 +250,10 @@ body.dark .card {
     font-style: italic;
     font-size: 60px;
     font-weight: bold;
-    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
-    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    color: rgba(0, 51, 102, 0.2);
+    /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white;
+    /* 提高亮底可读性 */
     pointer-events: none;
     user-select: none;
 
@@ -271,8 +273,10 @@ body.dark .code-label {
     font-style: italic;
     font-size: 40px;
     font-weight: bold;
-    color: rgba(0, 51, 102, 0.2); /* 深蓝色默认字体 */
-    text-shadow: 1px 1px 2px white, -1px -1px 2px white; /* 提高亮底可读性 */
+    color: rgba(0, 51, 102, 0.2);
+    /* 深蓝色默认字体 */
+    text-shadow: 1px 1px 2px white, -1px -1px 2px white;
+    /* 提高亮底可读性 */
     pointer-events: none;
     user-select: none;
 
@@ -293,6 +297,7 @@ body.dark .code-label-small {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -305,7 +310,8 @@ body.dark .code-label-small {
 }
 
 .card.fade-in:hover {
-    transform: translateY(0) scale(1.03);  /* 保留Y位置，放大 */
+    transform: translateY(0) scale(1.03);
+    /* 保留Y位置，放大 */
 }
 
 /*侧边栏*/
@@ -322,8 +328,10 @@ body.dark .code-label-small {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none; /* 去掉下划线 */
-    color: inherit; /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 .asideCard-highlight {
@@ -339,8 +347,10 @@ body.dark .code-label-small {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none;  /* 去掉下划线 */
-    color: inherit;         /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 .asideCard:hover {
@@ -369,8 +379,10 @@ body.dark .asideCard {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none; /* 去掉下划线 */
-    color: inherit; /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 body.dark .asideCard-highlight {
@@ -386,8 +398,10 @@ body.dark .asideCard-highlight {
     font-size: 20px;
     font-weight: bold;
 
-    text-decoration: none;  /* 去掉下划线 */
-    color: inherit;         /* 继承字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
 }
 
 body.dark .asideCard:hover {
@@ -469,9 +483,9 @@ body.dark .card-bbs {
     border-radius: 20px;
     width: 90%;
     max-width: 700px;
-    height:90%;
+    height: 90%;
     max-height: 700px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     transform: scale(0.8);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -483,7 +497,7 @@ body.dark .modal {
     border-radius: 20px;
     width: 90%;
     max-width: 700px;
-    height:90%;
+    height: 90%;
     max-height: 700px;
     box-shadow: 0 25px 50px rgba(127, 250, 255, 0.3);
     transform: scale(0.8);
@@ -493,21 +507,26 @@ body.dark .modal {
 
 /* 隐藏默认滚动条轨道 */
 .modal::-webkit-scrollbar {
-  width: 8px; /* 设置滚动条宽度 */
-  background: transparent; /* 透明轨道 */
+    width: 8px;
+    /* 设置滚动条宽度 */
+    background: transparent;
+    /* 透明轨道 */
 }
 
 /* 滚动条滑块 - 透明效果 */
 .modal::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2); /* 半透明黑色 */
-  border-radius: 4px;
-  border: 2px solid transparent; /* 透明边框 */
-  background-clip: content-box; /* 重要：背景不延伸到边框 */
+    background: rgba(0, 0, 0, 0.2);
+    /* 半透明黑色 */
+    border-radius: 4px;
+    border: 2px solid transparent;
+    /* 透明边框 */
+    background-clip: content-box;
+    /* 重要：背景不延伸到边框 */
 }
 
 /* 悬停时显示更明显的滑块 */
 .modal::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .modal-mask.active .modal {
@@ -535,25 +554,25 @@ body.dark .modal-content {
 }
 
 .modal-img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
 }
 
 .modal-content {
-  padding: 20px;
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
     }
-    
+
     .subtitle {
         font-size: 1.1rem;
     }
-    
+
     .feature-card {
         width: 100%;
         max-width: 300px;
@@ -561,18 +580,64 @@ body.dark .modal-content {
 }
 
 /*空客介绍图片*/
-.AirbusImg-intro
-{
-    width:400px;
+.AirbusImg-intro {
+    width: 400px;
     margin-top: 10px;
-    margin-right:20px;
-    float:left;
+    margin-right: 20px;
+    float: left;
 }
 
-.airbus-textintroduction p
-{
+.airbus-textintroduction p {
     line-height: 35px;
     text-align: justify;
     font-size: 20px;
     text-indent: 2em;
+}
+
+/* 表格样式 */
+.table {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    text-align: center;
+    width: 100%;
+}
+
+.table th {
+    border: 1px solid #000000;
+    text-align: center;
+
+}
+
+.table td {
+    border: 1px solid #000000;
+    text-align: center;
+
+}
+
+.table tr.first {
+    background-color: #a7a7a7;
+}
+
+/* 表格暗色样式 */
+body.dark .table {
+    border-collapse: collapse;
+    border: 1px solid #ffffff;
+    text-align: center;
+    width: 100%;
+}
+
+body.dark .table th {
+    border: 1px solid #ffffff;
+    text-align: center;
+
+}
+
+body.dark .table td {
+    border: 1px solid #ffffff;
+    text-align: center;
+
+}
+
+body.dark .table tr.first {
+    background-color: #585858;
 }
