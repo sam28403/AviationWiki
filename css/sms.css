@@ -1,0 +1,367 @@
+:root {
+    --light-bg: #f9f9f9;
+    --light-sidebar: #dddddd;
+    --light-header: royalblue;
+    --light-footer: royalblue;
+    --light-text: #000;
+
+    --dark-bg: #121212;
+    --dark-sidebar: #2b2b2b;
+    --dark-header: #1e90ff;
+    --dark-footer: #1e90ff;
+    --dark-text: #f1f1f1;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "微软雅黑", sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr 50px;
+    height: 100vh;
+    transition: grid-template-columns 0.5s ease;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--light-header);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark header {
+    background-color: var(--dark-header);
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: var(--light-sidebar);
+    color: #333;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, width 0.5s ease, padding 0.5s ease;
+    overflow: hidden;
+}
+
+body.dark aside {
+    background-color: var(--dark-sidebar);
+    color: var(--dark-text);
+}
+
+main {
+    grid-area: main;
+    background-color: var(--light-bg);
+    transition: background-color 0.3s ease;
+    padding: 20px 20px 0 0; /* 留出侧边栏宽度 */
+    position: relative; /* 关键：让绝对定位的chat-container以main为参考 */
+}
+
+body.dark main {
+    background-color: var(--dark-bg);
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--light-footer);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark footer {
+    background-color: var(--dark-footer);
+    color: black;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #333;
+}
+
+body.dark nav a {
+    color: #ccc;
+}
+
+body.dark nav a:hover {
+    /*color: #87cefa;*/
+    color: #ffffff
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.home-link:hover {
+    opacity: 0.85;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+#themeBtn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+#themeBtn:hover {
+    transform: scale(1.1);
+}
+
+/*正文字变大*/
+
+.contents {
+    font-size: 20px;
+    text-align: justify;
+}
+
+
+/*主页图片居中*/
+.center-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/*侧边栏*/
+.asideCard {
+    display: flex;
+    align-items: start;
+    background: #cccccc;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
+}
+
+.asideCard-highlight {
+    display: flex;
+    align-items: start;
+    background: linear-gradient(to bottom right, white, #bdb1d8);
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
+}
+
+.asideCard:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom right, white, lightskyblue);
+    cursor: pointer;
+}
+
+.asideCard-highlight:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+body.dark .asideCard {
+    display: flex;
+    align-items: start;
+    background: #777777;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
+}
+
+body.dark .asideCard-highlight {
+    display: flex;
+    align-items: start;
+    background: linear-gradient(to top left, white, mediumpurple);
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 190px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 继承字体颜色 */
+}
+
+body.dark .asideCard:hover {
+    scale: 1.03;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to top left, white, royalblue);
+    cursor: pointer;
+}
+
+/* 优化对话框布局，保证消息区有充足空间 */
+#chat-container {
+    position: absolute;
+    top: 40px;
+    left: 0; /* 与aside宽度一致 */
+    right: 0;
+    bottom: 0;
+    background: #fff;
+
+    box-shadow: 0 2px 12px #0001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2;
+}
+
+body.dark #chat-container {
+    background: #222;
+}
+
+#chat-messages {
+    flex: 1 1 0;
+    min-height: 0;
+    max-height: 100%;
+    padding: 24px 20px 12px 20px;
+    overflow-y: auto;
+    font-size: 16px;
+    background: #f7f7fa;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+body.dark #chat-messages {
+    background: #121212;
+}
+
+.chat-input-bar {
+    flex-shrink: 0;
+    display: flex;
+    border-top: 1px solid #eee;
+    background: #fafbfc;
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+
+body.dark .chat-input-bar {
+    background: #444;
+    border-top: 1px solid #555;
+}
+
+#chat-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+    color: inherit;
+}
+
+#chat-send {
+    border: none;
+    background: #1976d2;
+    color: #fff;
+    padding: 0 18px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 美化发送消息为气泡样式 */
+.my-message {
+    display: inline-block;
+    max-width: 70%;
+    background: #1976d2;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 18px 18px 4px 18px;
+    margin: 8px 0 8px auto;
+    text-align: left;
+    font-size: 16px;
+    word-break: break-all;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    position: relative;
+    right: 0;
+    clear: both;
+    /* 右侧对齐 */
+    float: right;
+}
