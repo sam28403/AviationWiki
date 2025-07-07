@@ -381,17 +381,12 @@ body.dark .asideCard:hover {
     }
 }
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
+    grid-area: footer;
     background-color: var(--light-footer);
     color: white;
     text-align: center;
     line-height: 50px;
-    height: 50px;
-    z-index: 10;
-    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark footer {

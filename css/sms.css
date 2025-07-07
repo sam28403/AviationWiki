@@ -281,7 +281,7 @@ body.dark .asideCard:hover {
     left: 0; /* 与aside宽度一致 */
     right: 0;
     bottom: 0;
-    background: #fff;
+    background: #f9f9f9;
 
     box-shadow: 0 2px 12px #0001;
     display: flex;
@@ -301,7 +301,7 @@ body.dark #chat-container {
     padding: 24px 20px 12px 20px;
     overflow-y: auto;
     font-size: 16px;
-    background: #f7f7fa;
+    background: #f9f9f9;
     box-sizing: border-box;
 
     display: flex;
@@ -316,7 +316,7 @@ body.dark #chat-messages {
     flex-shrink: 0;
     display: flex;
     border-top: 1px solid #eee;
-    background: #fafbfc;
+    background: #ffffff;
     padding: 10px 16px;
     box-sizing: border-box;
 }
@@ -339,7 +339,7 @@ body.dark .chat-input-bar {
 #chat-send {
     border: none;
     background: #1976d2;
-    color: #fff;
+    color: #f9f9f9;
     padding: 0 18px;
     font-size: 16px;
     cursor: pointer;
