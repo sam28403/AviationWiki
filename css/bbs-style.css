@@ -595,3 +595,73 @@ body.dark .hot-topics input[type="text"] {
 .card-bbs {
   position: relative;
 }
+
+/*发帖相关*/
+/* 发帖区域 */
+.post-section {
+    margin: 30px;
+}
+
+.post-title {
+    font-size: 50px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* 表单容器 */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 标题输入框 */
+.input-title {
+    font-size: 28px;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    color: black;
+}
+
+body.dark .input-title {
+    background-color: #333;
+    color: white;
+}
+
+/* 正文输入框 */
+.input-body {
+    font-size: 16px;
+    height: 400px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+    color: black;
+}
+
+body.dark .input-body {
+    background-color: #333;
+    color: white;
+}
+
+/* 提交按钮 */
+.submit-btn {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
