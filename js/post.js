@@ -10,6 +10,7 @@ document.querySelector('.post-form').addEventListener('submit', function (e) {
     }
 
     // 模拟提交到后端接口
+    // 后端对接！！！
     fetch('/api/post', {
         method: 'POST',
         headers: {
@@ -35,4 +36,13 @@ document.querySelector('.post-form').addEventListener('submit', function (e) {
             console.error('提交失败:', error);
             alert("提交失败，请稍后再试");
         });
+});
+
+// markdown preview
+const bodyInput = document.querySelector('.input-body');
+const preview = document.getElementById('previewArea');
+
+bodyInput.addEventListener('input', () => {
+    const markdownText = bodyInput.value;
+    preview.innerHTML = marked.parse(markdownText); // 实时转换并插入 HTML
 });

@@ -19,86 +19,6 @@ window.onload = () => {
     }
 };
 
-//主页侧边栏收起展开控制
-const toggleBtn = document.getElementById('toggleSidebar');
-const sidebar = document.querySelector('aside');
-const container = document.querySelector('.container');
-
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
-    container.classList.toggle('sidebar-collapsed');
-});
-
-// 页面加载后 若干ms 自动收起侧边栏，这么做为了让用户知道侧边栏的存在。
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        sidebar.classList.add('collapsed');
-        container.classList.add('sidebar-collapsed');
-    }, 700); // 这里改时间，单位为ms
-});
-
-// 主页底部照片轮播
-let img = document.getElementById("slideshow");  // 改为 let
-// filename
-let current = 1;
-const total = 82;
-let isSliding = false;
-
-function showNextImage() {
-    if (isSliding) return;
-    isSliding = true;
-
-    const next = new Image();
-    next.src = `img/index/${(current % total) + 1}.jpg`; //path
-    next.className = "center-img";
-    next.style.transform = "translateX(100%)";
-
-    const container = img.parentElement;
-    container.appendChild(next);
-
-    // 触发滑动动画
-    requestAnimationFrame(() => {
-        img.style.transform = "translateX(-100%)";
-        next.style.transform = "translateX(0)";
-    });
-
-    // 动画结束后替换 img 引用
-    setTimeout(() => {
-        container.removeChild(img);
-        next.id = "slideshow";
-        img = next; // 更新引用！
-        current = (current % total) + 1;
-        isSliding = false;
-    }, 1000); // 与 CSS 动画一致
-}
-
-// setInterval(showNextImage, 5000); // 废弃
-
-// 轮播照片操作
-let interval = setInterval(showNextImage, 5000);
-let isPaused = false;
-
-const toggleBtn2 = document.getElementById("togglePlay");
-const downloadBtn = document.getElementById("downloadBtn");
-
-toggleBtn2.addEventListener("click", () => {
-    if (isPaused) {
-        interval = setInterval(showNextImage, 5000);
-        toggleBtn2.querySelector("span").textContent = "pause";
-    } else {
-        clearInterval(interval);
-        toggleBtn2.querySelector("span").textContent = "play_arrow";
-    }
-    isPaused = !isPaused;
-});
-
-downloadBtn.addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = img.src;
-    link.download = `【Sam-Lab】-image-${current}.jpg`;
-    link.click();
-});
-
 // Fade in
 // 创建观察器
 const observer = new IntersectionObserver((entries, observer) => {
@@ -118,3 +38,61 @@ cards.forEach(card => observer.observe(card));
 
 const cards_bbs = document.querySelectorAll('.card-bbs');
 cards_bbs.forEach(card => observer.observe(card));
+
+// 显示贴文
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/api/posts") // 后端对接
+        .then(res => res.json())
+        .then(data => {
+            const cardList = document.querySelector(".card-list");
+
+            data.forEach(post => {
+                const card = document.createElement("div");
+                card.className = "card-bbs";
+
+                let topTag = post.top ? `<span class="bbs-top">置顶</span>` : "";
+                card.innerHTML = `
+            ${topTag}
+            <a class="bbs-title" href="article.html?id=${post.id}">${post.title}</a>
+            <div class="bbs-meta">
+              <a class="bbs-author" href="#">
+                <img class="bbs-avatar" src="${post.avatar}" alt="作者头像">
+                ${post.author}
+              </a>
+              <span class="bbs-time">${post.timestamp}</span>
+            </div>
+          `;
+                cardList.appendChild(card);
+            });
+        })
+        .catch(err => {
+            console.error("加载帖子失败：", err);
+        });
+});
+
+// BBS右侧随机推荐
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/api/posts")
+        .then(res => res.json())
+        .then(data => {
+            const hotList = document.querySelector(".hot-list");
+            hotList.innerHTML = ""; // 清空原有推荐
+
+            // 随机打乱顺序
+            const shuffled = data.sort(() => Math.random() - 0.5);
+
+            // 取前3条（或不足3条就全部）
+            const pick = shuffled.slice(0, 3);
+
+            pick.forEach(post => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="article.html?id=${post.id}">${post.title}</a>`;
+                hotList.appendChild(li);
+            });
+        })
+        .catch(err => {
+            console.error("获取热议推荐失败：", err);
+        });
+});
+
+

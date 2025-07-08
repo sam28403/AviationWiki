@@ -665,3 +665,18 @@ body.dark .input-body {
 .submit-btn:hover {
     background-color: #0056b3;
 }
+
+/*M↓预览*/
+.markdown-preview {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+body.dark .markdown-preview {
+    background-color: #333;
+    color: white;
+}

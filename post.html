@@ -43,7 +43,10 @@
         <h1 class="post-title">发帖</h1>
         <form class="post-form">
           <input type="text" class="input-title" placeholder="请输入标题" required>
-          <textarea class="input-body" placeholder="请输入正文内容" required></textarea>
+          <textarea class="input-body" placeholder="请输入正文内容（支持 Markdown 语法）" required></textarea>
+
+          <h2>预览</h2>
+          <div class="markdown-preview" id="previewArea"></div>
           <button type="submit" class="submit-btn">发布</button>
         </form>
       </section>
@@ -55,5 +58,6 @@
   </div>
   <script src="js/bbs-theme.js"></script>
   <script src="js/post.js"></script>
+  <script src="js/marked.min.js"></script>
 </body>
 </html>
