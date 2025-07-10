@@ -10,7 +10,7 @@ import markdown
 
 
 app=Flask(__name__)
-app.secret_key="HeFeiXuanSiLe8964!+&#(#!!*&)"
+app.secret_key="XJP@8964"
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 
@@ -65,10 +65,10 @@ def post():
 @app.route("/api/post", methods=['POST'])
 def get_post():
     #发文库
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     #身份库
-    conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor2=conn.cursor(cursor=pymysql.cursors.DictCursor)
     title=request.form.get('title')
     body=request.form.get('body')
@@ -87,7 +87,7 @@ def get_post():
 
 @app.route("/user/<id>")
 def user(id):
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     if('username' in session):
         sql="select id from userinformation where username=%s"
@@ -113,9 +113,9 @@ def user(id):
 @app.route('/article')
 def article():
     article_id = request.args.get('id')  # 这是关键点
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
-    conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor2=conn.cursor(cursor=pymysql.cursors.DictCursor)
     sql="select * from bbs where id=%s"
     cursor.execute(sql,[article_id])
@@ -137,13 +137,13 @@ def article():
 
 @app.route("/api/posts")
 def get_posts():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     sql="select * from bbs"
     cursor.execute(sql)
     posts=[]
     for data_list in cursor.fetchall():
-        conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+        conn2=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
         cursor2=conn.cursor(cursor=pymysql.cursors.DictCursor)
         sql2="select pic_url,name from userinformation where id=%s"
         cursor2.execute(sql2,[data_list['author_id']])
@@ -178,7 +178,7 @@ def get_posts():
 
 @app.route("/personal-information")
 def personalinformation():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     if('username' in session):
         username=session['username']
@@ -196,7 +196,7 @@ def personalinformation():
 
 @app.route("/upload_photo", methods=['POST'])
 def upload_photo():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     file = request.files.get('photo')
     username = session.get('username')  # 假设你用 session 登录了
@@ -224,7 +224,7 @@ def upload_photo():
 
 @app.route("/edit_info", methods=['POST'])
 def edit_info():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     username=session['username']
     ALLOWED_FIELDS = {'name', 'sex', 'birth', 'city', 'com_ap', 'fav_aero', 'fav_ap'}
@@ -256,7 +256,7 @@ def logout():
 
 @app.route('/drop_user', methods=['POST'])
 def drop_user():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     confirm = request.form.get('confirm')  # 用 request.form 获取
     username=session['username']
@@ -271,7 +271,7 @@ def drop_user():
 
 @app.route('/receive_data_reg', methods=['POST'])
 def receive_data_reg():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     username = request.form.get('username')  # 用 request.form 获取
     password = request.form.get('password')
@@ -290,7 +290,7 @@ def receive_data_reg():
 
 @app.route('/receive_data', methods=['POST'])
 def receive_data():
-    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="dty4590123",charset="utf8",db="aerowiki")
+    conn=pymysql.connect(host="127.0.0.1",port=3306,user='root',passwd="Qzfw114514+",charset="utf8",db="aerowiki")
     cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)
     username = request.form.get('username')  # 用 request.form 获取
     password = request.form.get('password')
@@ -310,5 +310,5 @@ def receive_data():
 
 
 if __name__=="__main__":
-    #serve(app, host="0.0.0.0", port=5000)
-    app.run(threaded=True)
+    serve(app, host="0.0.0.0", port=5000,threads=16)
+    #app.run(threaded=True)

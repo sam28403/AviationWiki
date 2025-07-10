@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img class="bbs-avatar" src="${post.avatar}" alt="作者头像">
                 ${post.author}
               </a>
-              <span class="bbs-time">${post.timestamp}</span>
+              <span class="bbs-time">${post.timestamp}+8</span>
             </div>
           `;
                 cardList.appendChild(card);
@@ -86,9 +86,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             pick.forEach(post => {
                 const li = document.createElement("li");
-                li.innerHTML = `<a href="/article?id=${post.id}">${post.title}</a>`;
+                const a = document.createElement("a");
+                a.href = `/article?id=${post.id}`;
+                a.textContent = post.title;
+                a.style.color = "inherit"; // 字体颜色继承
+                a.style.textDecoration = "none"; // 去掉下划线
+                li.appendChild(a);
                 hotList.appendChild(li);
             });
+
         })
         .catch(err => {
             console.error("获取热议推荐失败：", err);
