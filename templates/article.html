@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aviation BBS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bbs-explore-style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/index" class="home-link">
+                <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+                <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+            </a>
+            <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+        </header>
+
+        <aside>
+            <nav>
+                <ul>
+                    <a href="/boeing" class="asideCard">波音</a>
+                    <a href="/airbus" class="asideCard">空中客车</a>
+                    <a href="/china-planes" class="asideCard">中国商飞</a>
+                    <a href="/airport" class="asideCard">机场</a>
+                    <a href="/bbs" class="asideCard-highlight">讨论区</a>
+                    <a href="/personal-information" class="asideCard">个人中心</a>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <div class="flight-container">
+                <div class="plane">✈️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+            </div>
+            <div class="bbs1-1">
+                <div>
+                    <h1 id="article-title">{{title}}</h1>
+                </div>
+                <p>
+                    <img id="article-avatar" src="static/{{pic_url}}" alt="头像" width="15" height="15">
+                    发帖人：<span id="article-author">{{name}}</span>，
+                    <span id="article-time">{{timestamp}}</span>
+                </p>
+                <div id="article-content">
+                    <p>{{text | safe}}</p>
+                </div>
+            </div>
+
+            <div class="bbs1-2">
+                <aside class="hot-topics">
+                    <h3>今日热议</h3>
+                    <form>
+                        <label>你最关心的话题：</label>
+                        <input type="text" name="topic" placeholder="输入话题">
+                        <button type="submit">提交</button>
+                    </form>
+                    <ul class="hot-list">
+                        <li>随机推荐</li>
+                        <li>随机推荐</li>
+                        <li>随机推荐</li>
+                    </ul>
+                </aside>
+            </div>
+
+            <!--评价系统为摆设-->
+            <div class="bbs1-3">
+                <aside class="hot-topics">
+                    <form>
+                        <label >写下你的评价：</label>
+                        <input type="text" name="topic" placeholder="">
+                        <button type="submit">提交</button>
+                    </form>
+                </aside>
+            </div>
+        </main>
+
+        <footer>
+            版權所有 © 2025 Sam-Lab Studio
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bbs-theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/marked.min.js') }}"></script>
+</body>
+
+</html>

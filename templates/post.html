@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Aviation BBS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bbs-style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header class="page-header">
+      <a href="/index" class="home-link">
+        <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+        <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+      </a>
+      <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <aside>
+      <nav>
+        <ul>
+          <a href="/boeing" class="asideCard">波音</a>
+          <a href="/airbus" class="asideCard">空中客车</a>
+          <a href="/china-planes" class="asideCard">中国商飞</a>
+          <a href="/airport" class="asideCard">机场</a>
+          <a href="/bbs" class="asideCard-highlight">讨论区</a>
+          <a href="/personal-information" class="asideCard">个人中心</a>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <div class="flight-container">
+        <div class="plane">✈️</div>
+        <div class="cloud">☁️</div>
+        <div class="cloud">☁️</div>
+        <div class="cloud">☁️</div>
+      </div>
+
+      <!--发帖界面-->
+
+      <section class="post-section">
+        <h1 class="post-title">发帖</h1>
+        <form class="post-form">
+          <input type="text" class="input-title" placeholder="请输入标题" required>
+          <textarea class="input-body" placeholder="请输入正文内容（支持 Markdown 语法）" required></textarea>
+
+          <h2>预览</h2>
+          <div class="markdown-preview" id="previewArea"></div>
+          <button type="submit" class="submit-btn">发布</button>
+        </form>
+      </section>
+
+    </main>
+    <footer>
+      版權所有 © 2025 Sam-Lab Studio
+    </footer>
+  </div>
+  <script src="{{ url_for('static', filename='js/bbs-theme.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/post.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/marked.min.js') }}"></script>
+</body>
+</html>

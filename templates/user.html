@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aviation BBS - XXX的主页</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/personal information-style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/index" class="home-link">
+                <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+                <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+            </a>
+            <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+        </header>
+
+        <aside>
+            <nav>
+                <ul>
+                    <a href="/boeing" class="asideCard">波音</a>
+                    <a href="/airbus" class="asideCard">空中客车</a>
+                    <a href="/china-planes" class="asideCard">中国商飞</a>
+                    <a href="/airport" class="asideCard">机场</a>
+                    <a href="/bbs" class="asideCard">讨论区</a>
+                    <a href="/personal-information" class="asideCard-highlight">个人中心</a>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <div class="flight-container">
+                <div class="plane">✈️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+            </div>
+
+            <div class="main-wrapper">
+                <div class="left-grid">
+                    <div id="photo-display" style="background-image: url('/static/{{pic_url}}'); background-size: cover;"></div>
+
+                    <div class="card bottom-left">
+                        <img src="{{ url_for('static', filename='img/city.svg') }}" alt="City" width="150">
+                        <div class="info">
+                            <h1>所在地</h1>
+                            <div class="info-item">
+                                <span>城市：</span><span id="address">{{city}}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>常用机场：</span><span id="airport">{{com_ap}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-cards">
+                    <div class="card top-right">
+                        <img src="{{ url_for('static', filename='img/name.svg') }}" alt="Name" width="150">
+                        <div class="info">
+                            <h1>基本信息</h1>
+                            <div class="info-item">
+                                <span>名字：</span><span id="name">{{name}}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>性别：</span><span id="title">{{sex}}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>生日：</span><span id="birthday">{{birth}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bottom-right">
+                        <img src="{{ url_for('static', filename='img/hobby.svg') }}" alt="Hobby" width="150">
+                        <div class="info">
+                            <h1>个人爱好</h1>
+                            <div class="info-item">
+                                <span>最爱机型：</span><span id="favplane">{{fav_aero}}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>最爱机场：</span><span id="favairport">{{fav_ap}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="button-list">
+                <button class="btn blue" onclick="window.location.href='/sms'">私信ta（演示）</button>
+            </div>
+
+            <div class="flight-container">
+                <div class="plane">✈️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+            </div>
+        </main>
+        <footer>
+            版權所有 © 2025 Sam-Lab Studio
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/personal information-theme.js') }}">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Aviation Wiki</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpage-style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> <!--Google 图标库-->
+</head>
+<body>
+
+<div class="container">
+  <header class="page-header">
+    <a href="/index" class="home-link">
+      <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+      <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+    </a>
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </header>
+  <button id="toggleSidebar">☰</button>
+  <aside>
+    <nav>
+      <ul>
+        <a href="/boeing" class="asideCard">波音</a>
+        <a href="/airbus" class="asideCard">空中客车</a>
+        <a href="/china-planes" class="asideCard">中国商飞</a>
+        <a href="/airport" class="asideCard">机场</a>
+        <a href="/bbs" class="asideCard">讨论区</a>
+        <a href="/personal-information" class="asideCard">个人中心</a>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="flight-container">
+      <div class="plane">✈️</div>
+      <div class="cloud">☁️</div>
+      <div class="cloud">☁️</div>
+      <div class="cloud">☁️</div>
+
+      <div class="sun">☀️</div>
+
+      <div class="moon-container">
+        <div class="moon">🌙</div>
+        <div class="snore">Zzᙆ...</div>
+      </div>
+    </div>
+    <h1 class="title">Welcome to Aviation Wiki👋👋👋</h1>
+    <h2 class="subtitle">查看最新飞机</h2>
+    <div class="card-list">
+      <a href="/boeing" class="card">
+        <img src="{{ url_for('static', filename='img/Boeing.svg') }}" alt="Boeing" class="card-img" width="150">
+        <h1 class="cardtext">波音</h1>
+      </a>
+
+
+
+      <a href="/airbus" class="card">
+        <img src="{{ url_for('static', filename='img/Airbus.png') }}" alt="Airbus" class="card-img" width="150">
+        <h1 class="cardtext">空中客车</h1>
+      </a>
+    </div>
+
+    <h2 class="subtitle">中国造大飞机</h2>
+    <div class="card-list">
+      <a href="/china-planes" class="card-bbs">
+        <img src="{{ url_for('static', filename='img/COMAC.svg') }}" alt="COMAC" class="card-img" width="200">
+        <h1 class="cardtext"><span><img alt="中国" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/40px-Flag_of_the_People%27s_Republic_of_China.svg.png" decoding="async" width="60" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/60px-Flag_of_the_People%27s_Republic_of_China.svg.png 2x" data-file-width="900" data-file-height="600"></span>中国商飞，中国骄傲。国产飞机，飞往世界！</h1>
+      </a>
+    </div>
+
+    <h2 class="subtitle">查看附近机场</h2>
+    <div class="card-list">
+      <a href="/airport" class="card-bbs">
+        <img src="{{ url_for('static', filename='img/airport.png') }}" alt="Airport" class="card-img" width="200">
+        <h1 class="cardtext">🌍上海及周边地区主要机场列表与介绍🌏</h1>
+      </a>
+    </div>
+
+    <h2 class="subtitle">与航空爱好者交流</h2>
+    <div class="card-list"observe>
+      <a href="/bbs" class="card-bbs">
+        <img src="{{ url_for('static', filename='img/meeting.png') }}" alt="bbs"  class="card-img" width="200">
+        <h1 class="cardtext">👨‍✈️👩‍✈️查找志同道合的航空爱好者！👨‍✈️👩‍✈️</h1>
+      </a>
+    </div>
+
+    <hr>
+
+    <h2>热门机型</h2>
+    <div class="card-list">
+      <div class="card">
+        <img src="{{ url_for('static', filename='img/boeing.jpg') }}" alt="ANA's Boeing 787" width="150">
+        <div class="info">
+          <h1>Boeing 787</h1>
+          <p><strong>最受乘客喜爱的飞机</strong></p>
+          <p>💵USD 225,000,000</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='img/Airbus/A380.jpg') }}" alt="Airbus A380" width="150">
+        <div class="info">
+          <h1>Airbus A380</h1>
+          <p><strong>双层大飞机</strong></p>
+          <p>💵USD 445,600,000</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>热门机场</h2>
+    <div class="card-list">
+      <div class="card">
+        <img src="{{ url_for('static', filename='img/sha.svg') }}" alt="PVG" width="100">
+        <div class="info">
+          <h1>浦东国际机场</h1>
+          <p>上海市，浦东新区</p>
+        </div>
+        <div class="code-label">PVG</div>
+      </div>
+
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='img/HIA.svg') }}" alt="HGH" width="150">
+        <div class="info">
+          <h1>萧山国际机场</h1>
+          <p>杭州市，萧山区</p>
+        </div>
+        <div class="code-label">HGH</div>
+      </div>
+    </div>
+
+    <h2>精选照片</h2>
+    <div class="slideshow-container">
+      <img id="slideshow" src="{{ url_for('static', filename='img/index/1.jpg') }}" alt="虹桥飞机轮播图" class="center-img">
+
+      <!--播放，暂停，下载-->
+      <div class="slideshow-controls">
+        <button id="togglePlay" class="icon-btn">
+          <span class="material-symbols-outlined">pause</span>
+        </button>
+        <button id="downloadBtn" class="icon-btn">
+          <span class="material-symbols-outlined">download</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    版權所有 © 2025 Sam-Lab Studio
+  </footer>
+</div>
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

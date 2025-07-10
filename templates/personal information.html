@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aviation BBS - 个人中心</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/personal information-style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/index" class="home-link">
+                <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+                <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+            </a>
+            <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+        </header>
+        <aside>
+            <nav>
+                <ul>
+                    <a href="/boeing" class="asideCard">波音</a>
+                    <a href="/airbus" class="asideCard">空中客车</a>
+                    <a href="/china-planes" class="asideCard">中国商飞</a>
+                    <a href="/airport" class="asideCard">机场</a>
+                    <a href="/bbs" class="asideCard">讨论区</a>
+                    <a href="/personal-information" class="asideCard-highlight">个人中心</a>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <div class="flight-container">
+                <div class="plane">✈️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+            </div>
+
+            <div class="main-wrapper">
+                <div class="left-grid">
+                    <div id="photo-display" style="background-image: url('/static/{{pic_url}}'); background-size: cover;"></div>
+
+                    <div class="card bottom-left">
+                        <img src="{{ url_for('static', filename='img/city.svg') }}" alt="City" width="150">
+                        <div class="info">
+                            <h1>所在地</h1>
+                            <div class="info-item">
+                                <span>城市：</span><span id="address">{{ '未填写' if city is none or city == 'NULL' else city }}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>常用机场：</span><span id="airport">{{ '未填写' if com_ap is none or com_ap == 'NULL' else com_ap }}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-cards">
+                    <div class="card top-right">
+                        <img src="{{ url_for('static', filename='img/name.svg') }}" alt="Name" width="150">
+                        <div class="info">
+                            <h1>基本信息</h1>
+                            <div class="info-item">
+                                <span>名字：</span><span id="name">{{ '未填写' if name is none or name == 'NULL' else name }}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>性别：</span><span id="title">{{ '未填写' if sex is none or sex == 'NULL' else sex }}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>生日：</span><span id="birthday">{{ '未填写' if birth is none or birth == 'NULL' else birth }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bottom-right">
+                        <img src="{{ url_for('static', filename='img/hobby.svg') }}" alt="Hobby" width="150">
+                        <div class="info">
+                            <h1>个人爱好</h1>
+                            <div class="info-item">
+                                <span>最爱机型：</span><span id="favplane">{{ '未填写' if fav_aero is none or fav_aero == 'NULL' else fav_aero }}</span>
+                            </div>
+                            <br>
+                            <div class="info-item">
+                                <span>最爱机场：</span><span id="favairport">{{ '未填写' if fav_ap is none or fav_ap == 'NULL' else fav_ap }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="button-list">
+                <button class="btn blue" data-modal-target="modalAAA">编辑信息</button>
+                <form action="/logout"><button class="btn gray" onclick="logout()">退出登录</button></form>
+                <button class="btn red" data-modal-target="modalBBB">删除账户</button>
+            </div>
+
+            <div class="flight-container">
+                <div class="plane">✈️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+                <div class="cloud">☁️</div>
+            </div>
+        </main>
+        <footer>
+            版權所有 © 2025 Sam-Lab Studio
+        </footer>
+    </div>
+
+    <div class="modal-mask" id="modalAAA">
+        <div class="modal">
+            <div class="modal-content">
+                <h1 class="modal-title">编辑信息</h1>
+
+                <!-- 自定义文件选择按钮 -->
+                <label for="photo-input" class="custom-file-btn">更改头像</label>
+                <input type="file" id="photo-input" accept="image/*" style="display: none;">
+
+                <input type="text" id="modal-name" placeholder="名字" value="{{'' if name is none or name == 'NULL' else name }}">
+                <input type="text" id="modal-title" placeholder="性别" value="{{ '' if sex is none or sex == 'NULL' else sex }}">
+                <input type="date" id="modal-birthday" value="{{birth}}">
+                <input type="text" id="modal-address" placeholder="城市" value="{{ '' if city is none or city == 'NULL' else city }}">
+                <input type="text" id="modal-airport" placeholder="常用机场" value="{{ '' if com_ap is none or com_ap == 'NULL' else com_ap }}">
+                <input type="text" id="modal-favplane" placeholder="最爱机型" value="{{ '' if fav_aero is none or fav_aero == 'NULL' else fav_aero }}">
+                <input type="text" id="modal-favairport" placeholder="最爱机场" value="{{ '' if fav_ap is none or fav_ap == 'NULL' else fav_ap }}">
+
+                <button class="modal-btn" onclick="saveInfo()">确认修改</button>
+                <button class="modal-btn" onclick="closeModalById('modalAAA')">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-mask" id="modalBBB">
+        <div class="modal">
+            <div class="modal-content">
+                <h1 class="modal-title">删除账户</h1>
+                <img src="{{ url_for('static', filename='img/warning.svg') }}" class="center-img">
+                <p style="font-size: 30px; text-align: center; line-height: 40px; font-weight: bold">你确认要删除账户吗？<br>此操作无法撤销！</p>
+
+                <button class="modal-btn2" onclick="dropuser()">确认</button>
+                <button class="modal-btn2" onclick="closeModalById('modalBBB')">取消</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{{ url_for('static', filename='js/personal information-theme.js') }}">
+    </script>
+</body>
+
+</html>

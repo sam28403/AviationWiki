@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aviation BBS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sms.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/index" class="home-link">
+                <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+                <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+            </a>
+            <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+        </header>
+
+        <aside>
+            <nav>
+                <ul>
+                    <a href="/boeing" class="asideCard">波音</a>
+                    <a href="/airbus" class="asideCard">空中客车</a>
+                    <a href="/china-planes" class="asideCard">中国商飞</a>
+                    <a href="/airport" class="asideCard">机场</a>
+                    <a href="/bbs" class="asideCard">讨论区</a>
+                    <a href="/personal-information" class="asideCard">个人中心</a>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <div id="chat-container">
+                <div id="chat-messages"></div>
+                <div class="chat-input-bar">
+                    <input id="chat-input" type="text" placeholder="输入内容...">
+                    <button id="chat-send">发送</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            版權所有 © 2025 Sam-Lab Studio
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<script>
+    // 简单的前端对话功能
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const chatMessages = document.getElementById('chat-messages');
+
+    chatSend.onclick = function () {
+        const text = chatInput.value.trim();
+        if (text) {
+            const msg = document.createElement('div');
+            msg.className = 'my-message';
+            msg.textContent = text;
+            chatMessages.insertBefore(msg, chatMessages.firstChild);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            chatInput.value = '';
+        }
+    };
+    chatInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') chatSend.click();
+    });
+</script>
+</body>
+</html>

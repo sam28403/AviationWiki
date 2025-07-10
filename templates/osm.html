@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Aviation Wiki</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/airport-style.css') }}">
+</head>
+<body>
+<div class="container">
+    <header class="page-header">
+        <a href="/index" class="home-link">
+            <img src="https://img.picui.cn/free/2025/07/02/686496809bfed.png" alt="Sam-Lab" class="logo">
+            <strong style="margin-left: 10px;">Aviation Wiki ✈</strong>
+        </a>
+        <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <aside>
+        <nav>
+            <ul>
+                <a href="/boeing" class="asideCard">波音</a>
+                <a href="/airbus" class="asideCard">空中客车</a>
+                <a href="/china-planes" class="asideCard">中国商飞</a>
+                <a href="/airport" class="asideCard-highlight">机场</a>
+                <a href="/bbs" class="asideCard">讨论区</a>
+                <a href="/personal-information" class="asideCard">个人中心</a>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=121.74276351928712%2C31.088516036658344%2C121.88695907592775%2C31.196650634600406&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+    </main>
+    <footer>
+        版權所有 © 2025 Sam-Lab Studio
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/airport-theme.js') }}"></script>
+</body>
+</html>
