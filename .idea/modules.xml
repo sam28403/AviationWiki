@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AviationWiki.iml" filepath="$PROJECT_DIR$/.idea/AviationWiki.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aviationwikivue.iml" filepath="$PROJECT_DIR$/.idea/aviationwikivue.iml" />
     </modules>
   </component>
 </project>

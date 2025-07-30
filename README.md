@@ -1,28 +1,5 @@
-# About this project
+# Vue 3 + Vite
 
-Aviation Wiki is a platform which provides aircraft and airport information. 
-## 项目进度
-🔴未开始   🟡进行中   🟢已完成
-- 🟢页面设计
-  - 🟢底层界面设计
-  - 🟢侧边栏设计
-  - 🟢博客界面设计
-  - 🟢网站首页样貌提升工程
-- 🟢词条
-  - 🟢Boeing
-  - 🟢Airbus
-  - 🟢Airport
-- 🟢附加内容
-  - 🟢机场界面改为可滚动
-  - 🟢机场界面添加交通信息和地图
-  - 🟢Wiki界面表格样式优化
-- 🟢用户登录界面
-- 🟢用户界面
-- 🟡数据库
-- 🟡最终汇报PPT
-- 🟢预研展示内容（样板房）
-- 🟢私信功能演示
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## 项目完成度：80%
-
-[◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼ . . . . . . . . . .] 80 out of 100
+Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
