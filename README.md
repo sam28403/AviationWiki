@@ -1,5 +1,13 @@
 # About this project
 
+![ss1](ss1.png)
+
+![ss2](ss2.png)
+
+![ss3](ss3.png)
+
+![ss4](ss4.png)
+
 Aviation Wiki is a platform which provides aircraft and airport information. 
 
 **🎉近期任务圆满完成**
